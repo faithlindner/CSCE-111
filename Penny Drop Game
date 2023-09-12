@@ -1,1 +1,291 @@
+import javax.swing.JOptionPane;
+import javax.swing.*;
+class FaithLindnerEx3 {
+  public static void main(String[] args) {
+
+    //Declaring integers and variables and displaying intro
+    int PENNIES_PER_PLAYER = 12;
+    int playerPennies = PENNIES_PER_PLAYER;
+    int computerPennies = PENNIES_PER_PLAYER;
+    int currentPlayer = 1;
+    JOptionPane.showMessageDialog(null,"Welcome to the Penny Drop Game!");
+    var name = JOptionPane.showInputDialog("What is your name?");
+    var output = " Welcome, " + name + "!";
+    JOptionPane.showMessageDialog(null, output);
+    JOptionPane.showMessageDialog(null, "This game is designed to be played against the computer, which we will call player 2.");
+    JOptionPane.showMessageDialog(null, "The player who runs out of pennies first wins!");
+    JOptionPane.showMessageDialog(null, "Let's get started, " + name + "!");
+
+    //Declaring integers and strings and setting the slots equal to 0
+    int option = 0;
+    String output2 = "";
+    String output3 = "";
+    int playerRoll;
+    int computerRoll;
+    int slot1 = 0;
+    int slot2 = 0;
+    int slot3 = 0;
+    int slot4 = 0;
+    int slot5 = 0;
+    int slot6 = 0;
+
+      //Computer and player dice roll
+      playerRoll = (1 + (int)(Math.random() * 6));
+      output2 = String.format("You rolled a %d", playerRoll);
+      JOptionPane.showMessageDialog(null, output2);
+      computerRoll = (1 + (int)(Math.random() * 6));
+      output3 = String.format("Player 2 rolled a %d", computerRoll);
+      JOptionPane.showMessageDialog(null, output3);
+
+      //Highest roll plays first
+      if (playerRoll >= computerRoll) {
+        JOptionPane.showMessageDialog(null, "You rolled higher than player 2. \nYou go first, " + name + "!");
+        currentPlayer=1;
+      }
+      else {
+        JOptionPane.showMessageDialog(null, "Player 2 rolled higher than you. \nPlayer 2 goes first.");
+        currentPlayer=2;
+      }
+      //Beginning of game loop
+      while (playerPennies > 0 && computerPennies > 0) {
+        //Player's turn loop
+        if (currentPlayer==1) {
+        while (true) {
+            int roll = (1 + (int)(Math.random() * 6));
+            String output4 = String.format("You rolled a %d ", roll);
+            JOptionPane.showMessageDialog(null, output4);
+
+            if (roll==1 && currentPlayer==1 && !(slot1>=2)) {
+              slot1= slot1 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            if (slot1>=2 && currentPlayer==1) {
+              JOptionPane.showMessageDialog(null, "Oops! \nYou already have a penny in Slot 1!");
+              playerPennies = playerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+              slot1 = 0;
+              slot2 = 0;
+              slot3 = 0;
+              slot4 = 0;
+              slot5 = 0;
+              JOptionPane.showMessageDialog(null, "You have to take all of the pennies on the board! \nNow you have " + playerPennies + " pennies.");
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              break;
+            }
+            if (roll==2 && currentPlayer==1 && !(slot2>=2)) {
+              slot2 = slot2 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            if (slot2>=2 && currentPlayer==1) {
+              JOptionPane.showMessageDialog(null, "Oops! \nYou already have a penny in Slot 2!");
+              playerPennies = playerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+              slot1 = 0;
+              slot2 = 0;
+              slot3 = 0;
+              slot4 = 0;
+              slot5 = 0;
+              JOptionPane.showMessageDialog(null, "You have to take all of the pennies on the board! \nNow you have " + playerPennies + " pennies.");
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              break;
+            }
+            if (roll==3 && currentPlayer==1 && !(slot3>=2)) {
+              slot3 = slot3 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            if (slot3>=2 && currentPlayer==1) {
+              JOptionPane.showMessageDialog(null, "Oops! \nYou already have a penny in Slot 3!");
+              playerPennies = playerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+              slot1 = 0;
+              slot2 = 0;
+              slot3 = 0;
+              slot4 = 0;
+              slot5 = 0;
+              JOptionPane.showMessageDialog(null, "You have to take all of the pennies on the board! \nNow you have " + playerPennies + " pennies.");
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              break;
+            }
+            if (roll==4 && currentPlayer==1 && !(slot4>=2)) {
+              slot4 = slot4 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            if (slot4>=2 && currentPlayer==1) {
+              JOptionPane.showMessageDialog(null, "Oops! \nYou already have a penny in Slot 4!");
+              playerPennies = playerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+              slot1 = 0;
+              slot2 = 0;
+              slot3 = 0;
+              slot4 = 0;
+              slot5 = 0;
+              JOptionPane.showMessageDialog(null, "You have to take all of the pennies on the board! \nNow you have " + playerPennies + " pennies.");
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              break;
+            }
+            if (roll==5 && currentPlayer==1 && !(slot5>=2)) {
+              slot5 = slot5 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            if (slot5>=2 && currentPlayer==1) {
+              JOptionPane.showMessageDialog(null, "Oops! \nYou already have a penny in Slot 5!");
+              playerPennies = playerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+              slot1 = 0;
+              slot2 = 0;
+              slot3 = 0;
+              slot4 = 0;
+              slot5 = 0;
+              JOptionPane.showMessageDialog(null, "You have to take all of the pennies on the board! \nNow you have " + playerPennies + " pennies.");
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              break;
+            }
+            if (roll==6 && currentPlayer==1) {
+              slot6 = slot6 + 1;
+              playerPennies = playerPennies - 1;
+
+            }
+            //Displaying slot and asking player if they would like to roll again
+            if (!(slot1>=2 || slot2>= 2 || slot3>= 2 || slot4>= 2 || slot5>= 2)) {
+            JOptionPane.showMessageDialog(null, "Slot 1 has: " + slot1 + " penny. \nSlot 2 has: " + slot2 + " penny. \nSlot 3 has: " + slot3 + " penny. \nSlot 4 has: " + slot4 + " penny. \nSlot 5 has: " + slot5 + " penny. \nSlot 6 has: " +slot6 + " penny/pennies. \nYou have " + playerPennies + " pennies/penny.");
+            int choice = JOptionPane.showOptionDialog(null, "Would you like to roll again?", "Your turn", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (choice == JOptionPane.YES_OPTION) {
+                    continue;
+                  }
+
+
+            if (choice == JOptionPane.NO_OPTION) {
+              JOptionPane.showMessageDialog(null, "It is now player 2's turn!");
+              currentPlayer=2;
+              //Ending loop to go to computer's turn
+              break;
+            }
+          }
+        }
+      }
+
+
+
+
+
+    //computer's game loop
+    else {
+      if (!(playerPennies==0 || computerPennies==0)) {
+      for (int i=0; i<3; i++) {
+        int roll = (1 + (int)(Math.random() * 6));
+        String output5 = String.format("Player 2 rolled a %d ", roll);
+        JOptionPane.showMessageDialog(null, output5);
+
+        if (roll==1 && !(slot1>=2)) {
+          slot1 = slot1 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+        if (slot1>=2) {
+          JOptionPane.showMessageDialog(null, "Oops! \nPlayer 2 rolled a slot number that already has a penny in it!");
+          computerPennies = computerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+          slot1 = 0;
+          slot2 = 0;
+          slot3 = 0;
+          slot4 = 0;
+          slot5 = 0;
+          currentPlayer = 1;
+          break;
+
+        }
+        if (roll==2 && !(slot2>=2)) {
+          slot2 = slot2 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+        if (slot2>=2) {
+          JOptionPane.showMessageDialog(null, "Oops! \nPlayer 2 rolled a slot number that already has a penny in it!");
+          computerPennies = computerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+          slot1 = 0;
+          slot2 = 0;
+          slot3 = 0;
+          slot4 = 0;
+          slot5 = 0;
+          currentPlayer = 1;
+          break;
+        }
+        if (roll==3 && !(slot3>=2)) {
+          slot3 = slot3 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+        if (slot3>=2) {
+          JOptionPane.showMessageDialog(null, "Oops! \nPlayer 2 rolled a slot number that already has a penny in it!");
+          computerPennies = computerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+          slot1 = 0;
+          slot2 = 0;
+          slot3 = 0;
+          slot4 = 0;
+          slot5 = 0;
+          currentPlayer = 1;
+          break;
+        }
+        if (roll==4 && !(slot4>=2)) {
+          slot4 = slot4 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+        if (slot4>=2) {
+          JOptionPane.showMessageDialog(null, "Oops! \nPlayer 2 rolled a slot number that already has a penny in it!");
+          computerPennies = computerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+          slot1 = 0;
+          slot2 = 0;
+          slot3 = 0;
+          slot4 = 0;
+          slot5 = 0;
+          currentPlayer = 1;
+          break;
+        }
+        if (roll==5 && !(slot5>=2)) {
+          slot5 = slot5 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+        if (slot5>=2) {
+          JOptionPane.showMessageDialog(null, "Oops! \nPlayer 2 rolled a slot number that already has a penny in it!");
+          computerPennies = computerPennies + slot1 + slot2 + slot3 + slot4 + slot5;
+          slot1 = 0;
+          slot2 = 0;
+          slot3 = 0;
+          slot4 = 0;
+          slot5 = 0;
+          currentPlayer = 1;
+          break;
+        }
+        if (roll==6) {
+          slot6 = slot6 + 1;
+          computerPennies = computerPennies - 1;
+
+        }
+      }
+      //End of computer's turn
+      JOptionPane.showMessageDialog(null, "Player 2 has " + computerPennies + " pennies/penny.");
+      currentPlayer = 1;
+      if (computerPennies != 0) {
+      JOptionPane.showMessageDialog(null, "Your turn, " + name + "!");
+      }
+    }
+  }
+}
+    //Declaration of winner
+    if (playerPennies==0) {
+      JOptionPane.showMessageDialog(null, "Congrats! \nYou won!");
+      JOptionPane.showMessageDialog(null, "Thanks for playing!");
+    }
+    else {
+      JOptionPane.showMessageDialog(null, "You lost! \nPlayer 2 is the winner!");
+      JOptionPane.showMessageDialog(null, "Thanks for playing!");
+    }
+  }
+}
 
