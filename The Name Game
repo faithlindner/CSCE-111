@@ -1,0 +1,74 @@
+//Get ready for the name game!
+import java.util.Scanner;
+class FaithLindnerEx2 {
+  public static void main(String[] args) {
+    String userName;
+    String myName = "Faith";
+    String songVerse;
+    //Intro
+    System.out.println("Howdy! Welcome to the Name Game!");
+    System.out.println("Please enter your name.");
+    Scanner scnr = new Scanner(System.in);
+    userName = scnr.next();
+    //If my name
+    if (userName.equals(myName)) {
+      System.out.println("Hey, you're not supposed to be here.");
+      System.out.println("");
+
+    } //If double vowel
+    if (userName.substring(0,1).equals("A") || userName.substring(0,1).equals("E") || userName.substring(0,1).equals("I") || userName.substring(0,1).equals("O") || userName.substring(0,1).equals("U")) {
+      if (userName.substring(1,2).equals("a") || userName.substring(1,2).equals("e") || userName.substring(1,2).equals("i") || userName.substring(1,2).equals("o") || userName.substring(1,2).equals("u")) {
+        System.out.println(userName + ", " + userName + ", " + "Bo-b" + userName.substring(1));
+        System.out.println("Bo-na-na fanna Fo-f" + userName.substring(1));
+        System.out.println("Fee fi Mo-m" + userName.substring(1) + ", " + userName + "!");
+
+    } //If single vowel
+    else if (userName.substring(0,1).equals("A") || userName.substring(0,1).equals("E") || userName.substring(0,1).equals("I") || userName.substring(0,1).equals("O") || userName.substring(0,1).equals("U")) {
+      System.out.println(userName + ", " + userName + ", Bo-b" + userName.toLowerCase());
+      System.out.println("Bo-na-na fanna Fo-f" + userName.toLowerCase());
+      System.out.println("Fee fi Mo-m" + userName.toLowerCase() +", " + userName + "!");
+    }
+  } //If contains bad word...
+    if (userName.contains("itch") || userName.contains("ucker") || userName.contains("uck")) {
+        System.out.println("Hey, that's not cool.");
+
+   }
+   //If double consonant
+    if (!(userName.substring(0,1).equals("A") || userName.substring(0,1).equals("E") || userName.substring(0,1).equals("I") || userName.substring(0,1).equals("O") || userName.substring(0,1).equals("U")) && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+      if (!(userName.substring(1,2).equals("a") || userName.substring(1,2).equals("e") || userName.substring(1,2).equals("i") || userName.substring(1,2).equals("o") || userName.substring(1,2).equals("u")) && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+        System.out.println(userName + ", " + userName + ", Bo-b" + userName.substring(2));
+        System.out.println("Bo-na-na fanna Fo-f" + userName.substring(2));
+        System.out.println("Fee fi Mo-m" + userName.substring(2) + ", "  + userName + "!");
+      } //If single consonant
+        else if (!(userName.substring(0,1).equals("A") || userName.substring(0,1).equals("E") || userName.substring(0,1).equals("I") || userName.substring(0,1).equals("O") || userName.substring(0,1).equals("U") || userName.substring(0,1).equals("M") || userName.substring(0,1).equals("F") || userName.substring(0,1).equals("B")) && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+          System.out.println(userName + ", " + userName + ", Bo-b" + userName.substring(1));
+          System.out.println("Bo-na-na fanna Fo-f" + userName.substring(1));
+          System.out.println("Fee fi Mo-m" + userName.substring(1) + ", " + userName + "!");
+
+
+
+      } //If begins with "M"
+      else if (userName.substring(0,1).equals("M") && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+        System.out.println(userName + ", " + userName + ", Bo-B" + userName.substring(1));
+        System.out.println("Bo-na-na fanna Fo-f" + userName.substring(1));
+        System.out.println("Fee fi Mo-M" + userName.substring(1) + ", " + userName + "!");
+
+    } //If begins with "B"
+      else if (userName.substring(0,1).equals("B") && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+        System.out.println(userName + ", " + userName + ", Bo-" + userName.substring(1));
+        System.out.println("Bo-na-na fanna Fo-f" + userName.substring(1));
+        System.out.println("Fee fi Mo-m" + userName.substring(1) + ", " + userName + "!");
+
+    } //If begins with "F"
+      else if (userName.substring(0,1).equals("F") && !userName.contains("Faith") && !userName.contains("itch") && !userName.contains("ucker") && !userName.contains("uck")) {
+        System.out.println(userName + ", " + userName + ", " + "Bo-b" + userName.substring(1));
+        System.out.println("Bo-na-na fanna Fo-f" + userName.substring(1));
+        System.out.println("Fee fi Mo-m" + userName.substring(1) + ", " + userName +"!");
+    }
+
+
+  } //Outro
+System.out.println("");
+System.out.println("Thanks for playing! :)");
+}
+}
