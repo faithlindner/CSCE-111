@@ -1,0 +1,55 @@
+import java.util.Random;
+
+class FaithLindnerEx4 {
+
+    public static void main(String[] args) {
+        String[] deck = new String[54];
+        String[] rank = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "j0", "j1"};
+        String[] suits = {"H", "S", "C", "D"};
+        int size = 0;
+
+    //Creating the deck of cards:
+    for (int i = 0; i < suits.length; i++) {
+        for (int j = 0; j < rank.length - 2; j++) {
+            deck[size] = rank[j] + suits[i];
+            size++;
+        }
+    }
+
+    //Adding two Jokers to the deck:
+    deck[52] = rank[13];
+    deck[53] = rank[14];
+
+    //Printing the deck of cards:
+    System.out.println("Here is the deck of cards:");
+    for (int i = 0; i < deck.length; i++) {
+        if (i % 13 == 0) {
+            System.out.println();
+        }
+        System.out.print(deck[i] + "\t");
+    }
+
+    //Printing spaces between intial deck and shuffled deck
+    System.out.println("");
+    System.out.println("");
+
+
+    //(EXTRA CREDIT) Shuffling the deck of cards:
+    Random rand = new Random();
+    for (int i = 0; i < deck.length; i++) {
+        int randomSize = rand.nextInt(54);
+        String s = deck[i];
+        deck[i] = deck[randomSize];
+        deck[randomSize] = s;
+    }
+
+    //Printing the shuffled deck of cards
+    System.out.println("\nHere is the deck shuffled:");
+    for (int i = 0; i < deck.length; i++) {
+        if (i % 13 == 0) {
+            System.out.println("");
+        }
+        System.out.print(deck[i] + "\t");
+    }
+  }
+}
