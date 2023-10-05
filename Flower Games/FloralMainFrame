@@ -1,0 +1,143 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
+import java.awt.Color;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+
+
+public class FloralMainFrame extends JFrame {
+  public FloralMainFrame() {
+    super("The Honey Suckles");
+    setSize(900, 850);
+    setResizable(false);
+
+    // Create a panel for each button
+    JPanel buttonPanel = new JPanel(new GridLayout(2, 3, 10, 10));
+    buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+    buttonPanel.setBackground(new Color(241, 221, 228)); // light pink (#f1dde4)
+
+    // Create first button
+    JButton button1 = new JButton("Flower Matching Game - Faith");
+    button1.setFont(new Font("Lucida Bright", Font.BOLD, 12));
+    button1.setForeground(new Color(139, 122, 196));
+    button1.setBackground(new Color(213, 214, 243)); // light purple (#d5d6f3)
+    button1.setOpaque(true);
+    button1.setBorderPainted(false);
+
+    // Add ActionListener to button1
+     button1.addActionListener(new ActionListener() {
+     public void actionPerformed(ActionEvent e) {
+       // Open FaithClick.java when button1 is clicked
+       new faithClick();
+     }
+   });
+
+   // Create second button
+    JButton button2 = new JButton("Birthday Flower - Camille");
+    button2.setFont(new Font("Lucida Bright", Font.BOLD, 12));
+    button2.setForeground(new Color(139, 122, 196));
+    button2.setBackground(new Color(213, 214, 243)); // light purple (#d5d6f3)
+    button2.setOpaque(true);
+    button2.setBorderPainted(false);
+
+    // Open BirthdayFlowerGame.java when button2 is clicked
+    button2.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            // Pass the birthdayFlowerMap to BirthdayFlowerGame when button2 is clicked
+            SwingUtilities.invokeLater(new Runnable() {
+                public void run() {
+                    new BirthdayFlowerGame().newBirthdayFlowerGame();
+                }
+            });
+        }
+    });
+
+    // Create button3
+    JButton button3 = new JButton("Flower Pong Game - Thomas");
+    button3.setFont(new Font("Lucida Bright", Font.BOLD, 12));
+    button3.setForeground(new Color(139, 122, 196));
+    button3.setBackground(new Color(213, 214, 243)); // light purple (#d5d6f3)
+    button3.setOpaque(true);
+    button3.setBorderPainted(false);
+
+    // Open GameSelectionFrame.java when button3 is clicked
+    button3.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+            // Create and display an instance of GameSelectionFrame when button3 is clicked
+            GameSelectionFrame gameSelectionFrame = new GameSelectionFrame();
+            gameSelectionFrame.setVisible(true);
+        }
+    });
+
+
+    // Create button4
+    JButton button4 = new JButton("Flower Cat Tap - Sydney");
+    button4.setFont(new Font("Lucida Bright", Font.BOLD, 12));
+    button4.setForeground(new Color(139, 122, 196));
+    button4.setBackground(new Color(213, 214, 243)); // light purple (#d5d6f3)
+    button4.setOpaque(true);
+    button4.setBorderPainted(false);
+
+    // Open BongoCat.java when button4 is clicked
+    button4.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        BongoCat bongoCat = new BongoCat();
+        bongoCat.setVisible(true);
+      }
+    });
+
+    // Create a JLabel with the image logo in between button4 and button5
+    ImageIcon imageIcon = new ImageIcon("The Honey Suckles.png");
+    JLabel imageLabel = new JLabel(imageIcon);
+
+    // Create button5
+    JButton button5 = new JButton("Soothing Spring Music - YouTube");
+    button5.setFont(new Font("Lucida Bright", Font.BOLD, 12));
+    button5.setForeground(new Color(139, 122, 196));
+    button5.setBackground(new Color(213, 214, 243)); // light purple (#d5d6f3)
+    button5.setOpaque(true);
+    button5.setBorderPainted(false);
+
+    // Open YouTubeVid.java when button5 is clicked
+    button5.addActionListener(new ActionListener() {
+    public void actionPerformed(ActionEvent e) {
+      // Open FaithClick.java when button1 is clicked
+      new YouTubeVid();
+    }
+  });
+
+    // Add each button to buttonPanel
+    buttonPanel.add(button1);
+    buttonPanel.add(button2);
+    buttonPanel.add(button3);
+    buttonPanel.add(button4);
+    buttonPanel.add(imageLabel);
+    buttonPanel.add(button5);
+
+    // Add buttonPanel to JFrame
+    add(buttonPanel, BorderLayout.CENTER);
+
+    setVisible(true);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLocationRelativeTo(null);
+
+}
+
+  public static void main(String[] args) {
+    new FloralMainFrame();
+  }
+
+}
